@@ -1,0 +1,59 @@
+ffmpeg -ss 00:30:01 -i http://cmjmjr.cn:1935/yoyos/_definst_/8ec56815e2972afd368be10ec6f27653/A/5-A373737aa09-5b.mp4/playlist.m3u8?wsSecret=dbc3bfcca16bd33f14a725bfe253c517"&"wsTime=5d8cc9ed -c copy -t  00:40:00 -hls_list_size 0 m3u8/139/index.m3u8 -f  image2  -ss 00:20:00 -vframes 1  img/139.jpg
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ffmpeg -ss 00:00:00 -i 103.m3u8 -c copy -t  00:10:00 -hls_list_size 0 -c:a aac -strict -2 -f hls m3u8/103/index.m3u8 -y -f  image2  -ss 00:05:00 -vframes 1  img/103.jpg
+
+
+
+
+ffmpeg -i 单纯转换 -hls_time 10 -hls_list_size 0 -c:a aac -strict -2 -f hls m3u8/135/index.m3u8
+
+ffmpeg -i 102.m3u8 -hls_time 10 -hls_list_size 0 -c:a aac -strict -2 -f segment -segment_time 20 -segment_format_options movflags=+faststart hls outd.mp4
+
+
+ffmpeg -i 102.m3u8 -ss 00:00:30.0 -c copy -t 00:00:10.0 out.mp4
+
+ffmpeg -ss 00:00:00 -i 103.m3u8 -c copy -t  00:00:30  m3u8/103/index.m3u8 -y -f  image2  -ss 00:00:10 -vframes 1  img/103.jpg
+
+ffmpeg -i 103.m3u8 -y -f  image2  -ss 00:00:10 -vframes 1  img/103.jpg
+
+ffmpeg -re -i 102.m3u8 -ss-map 0 -00:00:30.0-segment_list playlist.m3u8 \-segment_list_flags + live -segment_time 10 out％03d.mkv
+cd /home/bf.baiyunav.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ffmpeg -i 源 -vf "drawtext=fontfile=1.ttf:text='文字':x=(main_w-180):y=(main_h-line_h-10):fontsize=20:fontcolor=white:shadowy=2" -c:v libx264 -hls_time 10 -hls_list_size 0 -c:a aac -strict -2 -f hls m3u8/87/index.m3u8
